@@ -1,0 +1,20 @@
+﻿#mainContainer {
+    left: 0;
+    position: absolute;
+    width: 100%;
+    -webkit-transition: left .5s ease;
+    -moz-transition: left .5s ease;
+    -o-transition: left .5s ease;
+    transition: left .5s ease;
+   
+}
+
+.shadowBox {
+    margin-top: -15px;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0,0,0,.5);
+    -moz-box-shadow: 0 0 8px 0 rgba(0,0,0,.5);
+    box-shadow: 0 0 8px 0 rgba(0,0,0,.5);
+    background: #fff;
+    /*overflow: auto;*/
+    padding-bottom: 15px;
+}

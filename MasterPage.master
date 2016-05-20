@@ -1,0 +1,157 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server" />
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<style>
+.marginBottom-0 {margin-bottom:0;}
+.dropdown-submenu{position:relative;}
+.dropdown-submenu>.dropdown-menu{top:0;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
+.dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
+.dropdown-submenu:hover>a:after{border-left-color:#555;}
+.dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
+   body
+   {
+   font-size: 14px;
+   }
+   .glyphicon
+	{
+	padding-right: 5px;
+	}
+    .navbar .nav > li > a
+	{
+   	font-size: 16px;
+    }
+    .container-fluid img
+    {
+        width:100%;
+        height:370px;
+        overflow:hidden;
+    }
+   #btnsearch
+   {
+       display:none;
+   }
+    </style>
+    <script type="text/javascript">
+        (function ($) {
+            $(document).ready(function () {
+                $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    $(this).parent().siblings().removeClass('open');
+                    $(this).parent().toggleClass('open');
+                });
+
+               
+
+            });
+
+        })(jQuery);
+    </script>
+ </head>
+<body>
+    <form id="form1">
+ 
+        <nav class="navbar navbar-default">
+		<div class="container-fluid">
+			   <div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+		</div>
+		
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="nav navbar-nav">
+				<li>
+                    <asp:HyperLink ID="HyperLink1" NavigateUrl="Default.aspx" runat="server"><span class="glyphicon glyphicon-home"></span></asp:HyperLink></li>
+				<li class="dropdown">
+                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                      Categories
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                    <li> <asp:HyperLink ID="HyperLink2" NavigateUrl="~/DisplayProducts.aspx?catID=10" runat="server">Electronics</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink4"  NavigateUrl="~/DisplayProducts.aspx?catID=30" runat="server">Luggage</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink5" NavigateUrl="~/DisplayProducts.aspx?catID=20" runat="server">Home & Kitchen</asp:HyperLink></li> 
+                    <li><asp:HyperLink ID="HyperLink16" NavigateUrl="~/DisplayProducts.aspx?catID=40" runat="server">Sports</asp:HyperLink></li> 
+                    <li><asp:HyperLink ID="HyperLink17" NavigateUrl="~/DisplayProducts.aspx?catID=50" runat="server">Beauty</asp:HyperLink></li> 
+                    </ul>
+                 </li> 
+
+                <%--<li class="dropdown">
+                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                      Admin
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                    <li><asp:HyperLink ID="HyperLink10" NavigateUrl="~/Admin/AddProducts.aspx" runat="server">Add Products</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink12" NavigateUrl="~/Admin/AddUsers.aspx" runat="server">Add Users</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink14" NavigateUrl="~/Admin/RegisterRoles.aspx" runat="server">Add Roles</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink15" NavigateUrl="~/Admin/AssignNewRoles.aspx" runat="server">Assign Roles</asp:HyperLink></li>
+                    <li class="divider"></li>
+                   <li class="dropdown dropdown-submenu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Edit Products</a>               
+                    <ul class="dropdown-menu">
+                    <li> <asp:HyperLink ID="HyperLink7" NavigateUrl="~/Admin/ViewProducts.aspx?catID=10" runat="server">Electronics</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink8"  NavigateUrl="~/Admin/ViewProducts.aspx?catID=30" runat="server">Luggage</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink9" NavigateUrl="~/Admin/ViewProducts.aspx?catID=20" runat="server">Kitchen</asp:HyperLink></li> 
+                    </ul>
+                    </li> 
+                    </ul>
+                 </li>        
+                 <li class="dropdown">
+                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Manager
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                    <li><asp:HyperLink ID="HyperLink11" NavigateUrl="~/Managers/AddProducts.aspx" runat="server">Add Products</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink13" NavigateUrl="~/Managers/ViewProducts.aspx" runat="server">Edit Products</asp:HyperLink></li>
+                        </ul>
+                     </li>       --%>    
+                
+                  
+			</ul>         
+              <ul class="nav navbar-nav navbar-right">
+              <li><asp:HyperLink ID="HyperLink7" runat="server"> <asp:Label ID="lbluser" runat="server" ></asp:Label></asp:HyperLink></li>    
+              <li><asp:HyperLink ID="HyperLink3" NavigateUrl="Login.aspx" runat="server"><span class="glyphicon glyphicon-log-in"></span>Login</asp:HyperLink></li>
+               <li><a href="ViewCart.aspx"><span class="glyphicon glyphicon-shopping-cart"></span>Shopping Cart</a></li>
+               <li><asp:HyperLink ID="HyperLink6" NavigateUrl="LogOut.aspx" runat="server">LogOut</asp:HyperLink></li>
+            </ul>
+		</div> 
+    </nav> 
+</form>
+
+<form id="form2" runat="server">
+      <div class="container-fluid" >
+        <asp:Panel ID="Panel1" HorizontalAlign="Right" runat="server" DefaultButton="btnsearch">
+            <span id="search" class="glyphicon glyphicon-search"></span>
+            <asp:TextBox ID="txtsearch" runat="server"></asp:TextBox>
+            <asp:Button ID="btnsearch" runat="server" OnClick="btnsearch_Click" />
+        </asp:Panel>
+        <asp:Label ID="lblstatus" runat="server"></asp:Label>
+   </div>
+    <asp:Menu ID="NavMenu" runat="server" RenderingMode="List">
+        
+   </asp:Menu>
+  
+    
+    <div class="container-fluid">
+    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+    </div>
+</form>
+
+</body>
+</html>
